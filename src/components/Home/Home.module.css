@@ -1,0 +1,27 @@
+.main {
+	//border: 2px solid yellow;
+	display: flex;
+	justify-content: center;
+	//align-items: center;
+	//height: 100vh;
+	margin-top: 8rem;
+}
+
+.title_group {
+	text-align: center;
+}
+
+.bookButton {
+	padding: 1rem 2rem;
+	background-color: #1f9fd1;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.bookButton:hover {
+	background-color: #1682b0;
+}

@@ -1,0 +1,84 @@
+.overlay {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 40;
+}
+
+.panelContainer {
+	//border: 3px solid green;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 50;
+}
+
+.panel {
+	//border: 3px solid red;
+	position: relative;
+	background: #fff;
+	padding: 1.5rem 0;
+	border-radius: 0.5rem;
+	width: 100%;
+	max-width: 28rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.closeBtn {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	display: grid;
+	place-items: center;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+	border-radius: 50%;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+.closeBtn:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.closeIconModal {
+	width: 2rem;
+	height: 2rem;
+	margin-right: 1rem;
+	margin-top: -0.5rem;
+	opacity: 0;
+	animation: fadeIn 0.9s ease-out 0.9s forwards;
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+
+.closeIconModal path {
+	stroke: #fff;
+}
+
+.closeBtn:hover .closeIconModal {
+	stroke: #ccc;
+}
+
+.closeBtn:hover .closeIconModal path {
+	stroke: inherit;
+}
