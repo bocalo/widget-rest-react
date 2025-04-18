@@ -1,8 +1,8 @@
 import { Dialog, DialogPanel, CloseButton } from '@headlessui/react';
 import { useState } from 'react';
-
 import BookingForm from '../BookingForm/BookingForm';
 import ContactForm from '../ContactForm/ContactForm';
+import SuccessScreen from '../SuccessScreen/SuccessScreen';
 import styles from './Modal.module.css';
 
 const Modal = ({ isOpen, onClose }) => {
@@ -16,15 +16,20 @@ const Modal = ({ isOpen, onClose }) => {
 	});
 
 	const handleBookingSubmit = (details) => {
-		setBookingDetails({ ...bookingDetails, ...details });
+		setBookingDetails((prev) => ({ ...prev, ...details }));
 		setStep(2);
 	};
 
 	const handleContactSubmit = (contactDetails) => {
 		const finalDetails = { ...bookingDetails, ...contactDetails };
 		console.log('Booking details', finalDetails);
-		onClose();
-		setStep(1);
+
+		setStep(3);
+
+		setTimeout(() => {
+			onClose();
+			setStep(1);
+		}, 3000);
 		// Здесь можно добавить сброс состояния или другие действия после бронирования
 		setBookingDetails({
 			people: 2,
@@ -33,6 +38,7 @@ const Modal = ({ isOpen, onClose }) => {
 			name: '',
 			phone: '',
 		});
+		//onClose();
 	};
 
 	return (
@@ -50,18 +56,22 @@ const Modal = ({ isOpen, onClose }) => {
 			</CloseButton>
 			<div className={styles.panelContainer}>
 				<DialogPanel className={styles.panel}>
-					{step === 1 ? (
+					{step === 1 && (
 						<BookingForm
 							initialValues={bookingDetails}
 							onSubmit={handleBookingSubmit}
 							onClose={onClose}
 						/>
-					) : (
+					)}
+					{step === 2 && (
 						<ContactForm
 							bookingDetails={bookingDetails}
 							onSubmit={handleContactSubmit}
 							onBack={() => setStep(1)}
 						/>
+					)}
+					{step === 3 && (
+						<SuccessScreen onClose={onClose} onNewBooking={() => setStep(1)} />
 					)}
 				</DialogPanel>
 			</div>
