@@ -11,7 +11,9 @@
 }
 
 .peopleBlock {
+	position: relative;
 	margin-bottom: 2rem;
+	width: 100%;
 }
 
 .form {
@@ -35,27 +37,39 @@
 }
 
 .peopleDropdown {
-	border: 5px solid red;
 	position: absolute;
-	top: 20%;
-	left: 0;
-	width: 100%;
-	max-height: 200px;
+	margin-top: 1rem;
+	top: calc(100% + 8px);
+	left: 50%;
+	transform: translateX(-50%);
+	width: 320px;
+	height: auto;
+	max-height: 80vh;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	overflow-y: auto;
-	background-color: white;
-	border: 1px solid #ddd;
+	justify-items: center;
+	gap: 1rem;
+	padding: 2.8rem 0.5rem;
+	background-color: hsl(180, 55%, 95%);
 	border-radius: 4px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-	z-index: 100;
+	z-index: 1000;
 }
 
 .dropdownItem {
-	//border: 5px solid red;
-	padding: 10px 15px;
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+	padding: 0.6rem 0.7rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	cursor: pointer;
 	transition: background-color 0.2s;
+	border: 2px solid #ddd;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 500;
 }
 
 .dropdownItem:hover {
@@ -65,6 +79,7 @@
 .dropdownItem.selected {
 	background-color: #1f9fd1;
 	color: white;
+	border-color: #1f9fd1;
 }
 
 /* Анимация открытия */
@@ -83,28 +98,14 @@
 	}
 }
 
-/* .peopleSelector {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	gap: 12px;
-	width: calc(100% + 40px);
-	margin-left: -20px;
-	padding: 20px;
-	background-color: hsl(180, 55%, 95%);
-	box-shadow: 0px 2px 4px 0px rgba(34, 60, 80, 0.2);
-	border-radius: 8px;
-} */
-
 .peopleHeader {
 	display: flex;
 	background-color: rgb(201, 239, 257);
-	padding: 8px 108px 8px 16px; /* Большой отступ справа */
+	padding: 8px 16px;
+	//padding: 8px 108px 8px 16px; /* Большой отступ справа */
 	border-radius: 4px;
 	margin-bottom: 8px;
-	width: fit-content;
-	max-width: 300px; /* Чтобы не растягивался бесконечно */
-	position: relative;
-	overflow: hidden; /* Скрывает излишек фона */
+	width: 100%;
 }
 
 .peopleLabel,
@@ -127,23 +128,6 @@
 	text-align: right;
 }
 
-/* .peopleButton {
-	width: 100%;
-	aspect-ratio: 1;
-	border: 2px solid #ddd;
-	background: white;
-	border-radius: 4px;
-	cursor: pointer;
-	font-weight: bold;
-	transition: all 0.2s;
-}
-
-.peopleButton.selected {
-	background-color: #1f9fd1;
-	color: white;
-	border-color: #1f9fd1;
-} */
-
 .buttonGroup {
 	margin-top: 1rem;
 }
@@ -156,4 +140,9 @@
 	color: #fff;
 	font-weight: bold;
 	cursor: pointer;
+}
+
+.labelTime {
+	position: relative;
+	z-index: 10;
 }

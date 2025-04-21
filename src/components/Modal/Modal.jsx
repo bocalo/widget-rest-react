@@ -26,10 +26,10 @@ const Modal = ({ isOpen, onClose }) => {
 
 		setStep(3);
 
-		setTimeout(() => {
-			onClose();
-			setStep(1);
-		}, 3000);
+		// setTimeout(() => {
+		// 	onClose();
+		// 	setStep(1);
+		// }, 3000);
 		// Здесь можно добавить сброс состояния или другие действия после бронирования
 		setBookingDetails({
 			people: 2,
@@ -44,16 +44,16 @@ const Modal = ({ isOpen, onClose }) => {
 	return (
 		<Dialog open={isOpen} onClose={onClose} className={styles.dialog}>
 			<div className={styles.overlay} aria-hidden="true" />
-			<CloseButton onClose={onClose} className={styles.closeBtn}>
-				<svg className={styles.closeIconModal} viewBox="0 0 20 20" fill="none">
-					<path
-						stroke="#fff"
-						strokeLinecap="round"
-						strokeWidth="2"
-						d="M6 18L18 6M6 6l12 12"
-					/>
-				</svg>
-			</CloseButton>
+
+			<svg className={styles.closeIconModal} viewBox="0 0 20 20" fill="none">
+				<path
+					stroke="#fff"
+					strokeLinecap="round"
+					strokeWidth="2"
+					d="M6 18L18 6M6 6l12 12"
+				/>
+			</svg>
+
 			<div className={styles.panelContainer}>
 				<DialogPanel className={styles.panel}>
 					{step === 1 && (

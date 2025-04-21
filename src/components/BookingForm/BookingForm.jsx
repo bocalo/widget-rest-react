@@ -68,26 +68,11 @@ const BookingForm = ({ initialValues, onSubmit }) => {
 									}`}
 									onClick={() => handlePeopleSelect(num)}
 								>
-									{num}
+									{num.toString().padStart(2, '0')}
 								</div>
 							))}
 						</div>
 					)}
-					{/* Кнопки выбора количества */}
-					{/* <div className={styles.peopleSelector}>
-						{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-							<button
-								key={num}
-								type="button"
-								className={`${styles.peopleButton} ${
-									people === num ? styles.selected : ''
-								}`}
-								onClick={() => setPeople(num)}
-							>
-								{num}
-							</button>
-						))}
-					</div> */}
 				</div>
 
 				<div className={styles.formGroup}>
@@ -113,13 +98,6 @@ const BookingForm = ({ initialValues, onSubmit }) => {
 				</div>
 
 				<div className={styles.buttonGroup}>
-					{/* <button
-						type="button"
-						onClick={onClose}
-						className={styles.secondaryButton}
-					>
-						Cancel
-					</button> */}
 					<button type="submit" className={styles.primaryButton}>
 						Book now
 					</button>
